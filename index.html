@@ -35,10 +35,24 @@
             <img id="qrBaiduPan">
         </div>
         <div class="sk-mt-4">
-            <h2 class="h4">LWL 二维码接口
-                <small class="sk-pl-2">LWL <del>个人</del>大佬搭建</small>
+            <h2 class="h4">QQ 二维码接口
+                <small class="sk-pl-2">不支持 HTTPS</small>
             </h2>
-            <p><a href="https://blog.lwl12.com/read/lwl-api-qrcode.html" target="_blank" rel="noopenner nofollow">接口文档</a></p>
+            <pre><code>http://mobile.qq.com/qrcode?width={{Width}}&height={{Height}}&url=12345{{Text}}</code></pre>
+            <div class="form-group">
+                <textarea class="form-input" id="inputQQ" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateQQ()">Generate</button>
+            </div>
+            <img id="qrQQ">
+        </div>
+        <div class="sk-mt-4">
+            <h2 class="h4">LWL 二维码接口
+                <small class="sk-pl-2">LWL
+                    <del>个人</del>大佬搭建</small>
+            </h2>
+            <p>
+                <a href="https://blog.lwl12.com/read/lwl-api-qrcode.html" target="_blank" rel="noopenner nofollow">接口文档</a>
+            </p>
             <div class="form-group">
                 <textarea class="form-input" id="inputLWL" type="text" placeholder="Input some text here ..."></textarea>
                 <button class="btn btn-primary" type="submit" onclick="generateLWL()">Generate</button>
@@ -56,6 +70,9 @@
             } else {
                 document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%26from=pan.baidu.com";
             }
+        }
+        function generateQQ() {
+            document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value;
         }
         function generateLWL() {
             document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value + "&w=200&h=200";
