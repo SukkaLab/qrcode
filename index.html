@@ -46,6 +46,17 @@
             <img id="qrQQ">
         </div>
         <div class="sk-mt-4">
+            <h2 class="h4">网易 LOFTER 二维码接口
+                <small class="sk-pl-2">微信分享</small>
+            </h2>
+            <pre><code>https://www.lofter.com/genBitmaxImage?url={{Text}}&h={{height}}&w={{width}}</code></pre>
+            <div class="form-group">
+                <textarea class="form-input" id="inputLofter" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateLofter()">Generate</button>
+            </div>
+            <img id="qrLofter">
+        </div>
+        <div class="sk-mt-4">
             <h2 class="h4">LWL 二维码接口
                 <small class="sk-pl-2">LWL
                     <del>个人</del>大佬搭建</small>
@@ -59,23 +70,27 @@
             </div>
             <img id="qrLWL">
         </div>
+        
     </div>
     <script>
         function generateWestCN() {
-            document.getElementById('qrWestCN').src = "https://www.west.cn/web/tool/codepayimg?uuid=" + document.getElementById('inputWestCN').value;
+            document.getElementById('qrWestCN').src = "https://www.west.cn/web/tool/codepayimg?uuid=" + document.getElementById('inputWestCN').value.replace(/\&/g,'%26').replace(/\?/g,'%3f');
         }
         function generateBaiduPan() {
             if (document.getElementById('inputBaiduPan').value.indexOf('?') === -1) {
-                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%3ffrom=pan.baidu.com";
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "%3ffrom=pan.baidu.com";
             } else {
-                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%26from=pan.baidu.com";
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "%26from=pan.baidu.com";
             }
         }
         function generateQQ() {
-            document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value;
+            document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value.replace(/\&/g,'%26').replace(/\?/g,'%3f');
+        }
+        function generateLofter() {
+            document.getElementById('qrLofter').src = "https://www.lofter.com/genBitmaxImage?url=" + document.getElementById('inputLofter').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "&w=200&h=200";
         }
         function generateLWL() {
-            document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value + "&w=200&h=200";
+            document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "&w=200&h=200";
         }
     </script>
     <script>!function (a, b, c, d, e) { var f = c.screen, g = encodeURIComponent, h = ["ga=" + a, "dt=" + g(d.title), "dr=" + g(d.referrer), "ul=" + (e.language || e.browserLanguage || e.userLanguage), "sd=" + f.colorDepth + "-bit", "sr=" + f.width + "x" + f.height, "vp=" + Math.max(d.documentElement.clientWidth, c.innerWidth || 0) + "x" + Math.max(d.documentElement.clientHeight, c.innerHeight || 0), "z=" + +new Date]; c.__ga_img = new Image, c.__ga_img.src = b + "?" + h.join("&") }("UA-122669675-3", "https://ga.giuem.com", window, document, navigator, location);</script>
