@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/ico" href="https://cdn.suka.moe/favicon/favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <title>QRCode API - Sukka's Lab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/spectre.css@0.5.0,npm/spectre.css@0.5.0/dist/spectre-exp.min.css,npm/spectre.css@0.5.0/dist/spectre-icons.min.css,npm/suka.css@0.1.2">
+</head>
+
+<body>
+    <div class="container grid-md">
+        <h1 class="h2 text-center sk-mt-8">二维码 API 接口</h1>
+        <div class="sk-mt-4">
+            <h2 class="h4">西部数码（微信支付）二维码接口</h2>
+            <pre><code>https://www.west.cn/web/tool/codepayimg?uuid={{Text}}</code></pre>
+            <div class="form-group">
+                <textarea class="form-input" id="inputWestCN" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateWestCN()">Generate</button>
+            </div>
+            <img id="qrWestCN">
+        </div>
+        <div class="sk-mt-4">
+            <h2 class="h4">百度网盘（链接分享）二维码接口</h2>
+            <pre><code>https://pan.baidu.com/share/qrcode?w={{Width}}&h={{Height}}&url={{Text}}?from=pan.baidu.com</code></pre>
+            <div class="form-group">
+                <textarea class="form-input" id="inputBaiduPan" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateBaiduPan()">Generate</button>
+            </div>
+            <img id="qrBaiduPan">
+        </div>
+    </div>
+    <script>
+        function generateWestCN() {
+            document.getElementById('qrWestCN').src = "https://www.west.cn/web/tool/codepayimg?uuid=" + document.getElementById('inputWestCN').value;
+        }
+        function generateBaiduPan() {
+            if (document.getElementById('inputBaiduPan').value.indexOf('?') === -1) {
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%3ffrom=pan.baidu.com";
+            } else {
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%26from=pan.baidu.com";
+            }
+        }
+    </script>
+    <script>!function (a, b, c, d, e) { var f = c.screen, g = encodeURIComponent, h = ["ga=" + a, "dt=" + g(d.title), "dr=" + g(d.referrer), "ul=" + (e.language || e.browserLanguage || e.userLanguage), "sd=" + f.colorDepth + "-bit", "sr=" + f.width + "x" + f.height, "vp=" + Math.max(d.documentElement.clientWidth, c.innerWidth || 0) + "x" + Math.max(d.documentElement.clientHeight, c.innerHeight || 0), "z=" + +new Date]; c.__ga_img = new Image, c.__ga_img.src = b + "?" + h.join("&") }("UA-122669675-3", "https://ga.giuem.com", window, document, navigator, location);</script>
+</body>
+
+</html>
