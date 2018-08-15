@@ -13,7 +13,9 @@
     <div class="container grid-md">
         <h1 class="h2 text-center sk-mt-8">二维码 API 接口</h1>
         <div class="sk-mt-4">
-            <h2 class="h4">西部数码二维码接口<small class="sk-pl-2">微信支付</small></h2>
+            <h2 class="h4">西部数码二维码接口
+                <small class="sk-pl-2">微信支付</small>
+            </h2>
             <pre><code>https://www.west.cn/web/tool/codepayimg?uuid={{Text}}</code></pre>
             <div class="form-group">
                 <textarea class="form-input" id="inputWestCN" type="text" placeholder="Input some text here ..."></textarea>
@@ -22,13 +24,26 @@
             <img id="qrWestCN">
         </div>
         <div class="sk-mt-4">
-            <h2 class="h4">百度网盘二维码接口<small class="sk-pl-2">链接分享</small></h2>
+            <h2 class="h4">百度网盘二维码接口
+                <small class="sk-pl-2">链接分享</small>
+            </h2>
             <pre><code>https://pan.baidu.com/share/qrcode?w={{Width}}&h={{Height}}&url={{Text}}?from=pan.baidu.com</code></pre>
             <div class="form-group">
                 <textarea class="form-input" id="inputBaiduPan" type="text" placeholder="Input some text here ..."></textarea>
                 <button class="btn btn-primary" type="submit" onclick="generateBaiduPan()">Generate</button>
             </div>
             <img id="qrBaiduPan">
+        </div>
+        <div class="sk-mt-4">
+            <h2 class="h4">LWL 二维码接口
+                <small class="sk-pl-2">LWL <del>个人</del>大佬搭建</small>
+            </h2>
+            <p><a href="https://blog.lwl12.com/read/lwl-api-qrcode.html" target="_blank" rel="noopenner nofollow">接口文档</a></p>
+            <div class="form-group">
+                <textarea class="form-input" id="inputLWL" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateLWL()">Generate</button>
+            </div>
+            <img id="qrLWL">
         </div>
     </div>
     <script>
@@ -41,6 +56,9 @@
             } else {
                 document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value + "%26from=pan.baidu.com";
             }
+        }
+        function generateLWL() {
+            document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value + "&w=200&h=200";
         }
     </script>
     <script>!function (a, b, c, d, e) { var f = c.screen, g = encodeURIComponent, h = ["ga=" + a, "dt=" + g(d.title), "dr=" + g(d.referrer), "ul=" + (e.language || e.browserLanguage || e.userLanguage), "sd=" + f.colorDepth + "-bit", "sr=" + f.width + "x" + f.height, "vp=" + Math.max(d.documentElement.clientWidth, c.innerWidth || 0) + "x" + Math.max(d.documentElement.clientHeight, c.innerHeight || 0), "z=" + +new Date]; c.__ga_img = new Image, c.__ga_img.src = b + "?" + h.join("&") }("UA-122669675-3", "https://ga.giuem.com", window, document, navigator, location);</script>
