@@ -7,6 +7,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
     <title>QRCode API - Sukka's Lab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/spectre.css@0.5.0,npm/spectre.css@0.5.0/dist/spectre-exp.min.css,npm/spectre.css@0.5.0/dist/spectre-icons.min.css,npm/suka.css@0.1.2">
+    <style>
+        body {
+            overflow-x: hidden !important;
+            word-wrap: break-word;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        html ::-webkit-scrollbar {
+            width: 6px;
+            height: 4px;
+            background: 0 0;
+        }
+
+        html ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .3);
+        }
+    </style>
 </head>
 
 <body>
@@ -70,27 +90,27 @@
             </div>
             <img id="qrLWL">
         </div>
-        
+
     </div>
     <script>
         function generateWestCN() {
-            document.getElementById('qrWestCN').src = "https://www.west.cn/web/tool/codepayimg?uuid=" + document.getElementById('inputWestCN').value.replace(/\&/g,'%26').replace(/\?/g,'%3f');
+            document.getElementById('qrWestCN').src = "https://www.west.cn/web/tool/codepayimg?uuid=" + document.getElementById('inputWestCN').value.replace(/\&/g, '%26').replace(/\?/g, '%3f');
         }
         function generateBaiduPan() {
             if (document.getElementById('inputBaiduPan').value.indexOf('?') === -1) {
-                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "%3ffrom=pan.baidu.com";
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + "%3ffrom=pan.baidu.com";
             } else {
-                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "%26from=pan.baidu.com";
+                document.getElementById('qrBaiduPan').src = "https://pan.baidu.com/share/qrcode?w=256&h=256&url=" + document.getElementById('inputBaiduPan').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + "%26from=pan.baidu.com";
             }
         }
         function generateQQ() {
-            document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value.replace(/\&/g,'%26').replace(/\?/g,'%3f');
+            document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value.replace(/\&/g, '%26').replace(/\?/g, '%3f');
         }
         function generateLofter() {
-            document.getElementById('qrLofter').src = "https://www.lofter.com/genBitmaxImage?url=" + document.getElementById('inputLofter').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "&w=200&h=200";
+            document.getElementById('qrLofter').src = "https://www.lofter.com/genBitmaxImage?url=" + document.getElementById('inputLofter').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + "&w=200&h=200";
         }
         function generateLWL() {
-            document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value.replace(/\&/g,'%26').replace(/\?/g,'%3f') + "&w=200&h=200";
+            document.getElementById('qrLWL').src = "https://api.lwl12.com/img/qrcode/get?ct=" + document.getElementById('inputLWL').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + "&w=200&h=200";
         }
     </script>
     <script>!function (a, b, c, d, e) { var f = c.screen, g = encodeURIComponent, h = ["ga=" + a, "dt=" + g(d.title), "dr=" + g(d.referrer), "ul=" + (e.language || e.browserLanguage || e.userLanguage), "sd=" + f.colorDepth + "-bit", "sr=" + f.width + "x" + f.height, "vp=" + Math.max(d.documentElement.clientWidth, c.innerWidth || 0) + "x" + Math.max(d.documentElement.clientHeight, c.innerHeight || 0), "z=" + +new Date]; c.__ga_img = new Image, c.__ga_img.src = b + "?" + h.join("&") }("UA-122669675-3", "https://ga.giuem.com", window, document, navigator, location);</script>
