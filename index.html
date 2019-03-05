@@ -66,6 +66,17 @@
             <img id="qrQQ">
         </div>
         <div class="sk-mt-4">
+            <h2 class="h4">豆瓣二维码接口
+                <small class="sk-pl-2">阿里云 CDN + 缓存</small>
+            </h2>
+            <pre><code>https://img{0,1,2,3}.doubanio.com/dae/qrgen/v2/{{Text}}.png</code></pre>
+            <div class="form-group">
+                <textarea class="form-input" id="inputDouban" type="text" placeholder="Input some text here ..."></textarea>
+                <button class="btn btn-primary" type="submit" onclick="generateDouban()">Generate</button>
+            </div>
+            <img id="qrDouban">
+        </div>
+        <div class="sk-mt-4">
             <h2 class="h4">网易 LOFTER 二维码接口
                 <small class="sk-pl-2">微信分享</small>
             </h2>
@@ -119,6 +130,9 @@
         }
         function generateQQ() {
             document.getElementById('qrQQ').src = "http://mobile.qq.com/qrcode?width=256&height=256&url=" + document.getElementById('inputQQ').value.replace(/\&/g, '%26').replace(/\?/g, '%3f');
+        }
+        function generateDouban() {
+            document.getElementById('qrDouban').src = "https://img0.doubanio.com/dae/qrgen/v2/" + document.getElementById('inputDouban').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + ".png";
         }
         function generateLofter() {
             document.getElementById('qrLofter').src = "https://www.lofter.com/genBitmaxImage?url=" + document.getElementById('inputLofter').value.replace(/\&/g, '%26').replace(/\?/g, '%3f') + "&w=200&h=200";
